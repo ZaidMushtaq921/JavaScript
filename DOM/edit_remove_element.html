@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Remove Elements</title>
+  </head>
+  <body style="background-color: #212121; color: white;">
+    <div class="container">
+      <ul class="list-group">
+        <li>first item</li>
+      </ul>
+    </div>
+  </body>
+  <script>
+// add one more list item  to the ul
+const myList = document.querySelector(".list-group")
+// const newItem = document.createElement("li");
+// newItem.textContent = "second item";
+// myList.appendChild(newItem);
+
+// lets create a funtion to add element,
+
+const addElementInList = function(myList ,text){
+    const newItem = document.createElement('li');
+    newItem.textContent = text
+    myList.appendChild(newItem)
+}
+
+addElementInList(myList,"second item")
+addElementInList(myList,"third item")
+addElementInList(myList,"forth item")
+addElementInList(myList,"fifth item")
+
+// Edit 2nd li
+const newItem = document.createElement("li")
+newItem.appendChild(document.createTextNode("replaced item"))
+const secItem =  document.querySelector("li:nth-child(2)")
+secItem.replaceWith(newItem) // it  will replace second child of ul with our created li
+
+newItem.innerText = "again changed" // it  will change only the text not whole li so we need to remove and append again 
+
+
+//  remove last li from the ul
+ const lastElement = document.querySelector("li:last-child");
+ lastElement.remove() // it  will remove the last li from the ul
+  </script>
+</html>

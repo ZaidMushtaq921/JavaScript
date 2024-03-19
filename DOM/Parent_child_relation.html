@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning about children parent relationship</title>
+</head>
+<body style="background-color: #212121;  color: white;">
+    <div class="parent">
+<h2 class="days">monday</h2>
+<h2 class="days">tuesday</h2>
+<h2 class="days">wednesday</h2>
+<h2 class="days">thursday</h2>
+    </div>
+    
+</body>
+<script>
+     // lets select parent class
+     const  parent = document.querySelector(".parent");
+     console.log(parent);
+ 
+     // how we select childrens of parent. we use children property, which return htmlCollection
+     console.log("childrens are : ",parent.children)
+
+     // to get the specific child by its index number , we can use this method also
+     console.log("first day  is :", parent.children[0].innerText);
+
+// how to target first child of parrent:
+console.log("targeting first child :",parent.firstElementChild)
+
+// how to target last child of parrent:
+console.log("targeting first child :",parent.lastElementChild)
+
+// lets change color of 2nd  day (index 1)
+const secondDay = parent.children[1];
+secondDay.style.backgroundColor ="blue";
+secondDay.style.color = "red"
+
+
+// we can move back to the parent from children
+
+let dayone = document.querySelector(".days") // it will select first day
+console.log(dayone);
+const parentFromChild = dayone.parentElement; // got parent
+console.log(parentFromChild);
+
+// we can target next sibling also
+const daytwo = dayone.nextElementSibling; // got next sibling
+console.log(daytwo);
+
+
+</script>
+</html>
