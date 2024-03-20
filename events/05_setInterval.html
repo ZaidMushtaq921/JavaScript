@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Set time out</title>
+    <style>
+      button {
+        width: 100px;
+        height: 30px;
+        margin: 20px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>lets change the background color !</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+  </body>
+  <script>
+  // setInterval: it  will execute a block of code repeatedly after every given delay in milliseconds.
+  function random(number) {
+      return Math.floor(Math.random() * (number + 1));
+    }
+
+    const changer = function () {
+      const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+      document.body.style.backgroundColor = rndCol;
+    };
+
+    const start = document.querySelector("#start")
+    const stop = document.querySelector("#stop")
+let intervalid;
+    start.addEventListener("click", ()=>{
+        if (!intervalid) { 
+            intervalid = setInterval(changer, 1000);
+         console.log("hii");
+        }
+         
+    })
+    
+    stop.addEventListener("click", ()=>{
+        if(intervalid){
+        clearInterval(intervalid);
+        intervalid=null;
+        }
+    })
+    
+
+  </script>
+</html>

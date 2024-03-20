@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Set time out</title>
+    <style>
+      #btn {
+        width: 100px;
+        height: 30px;
+        margin: 20px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to our website!</h1>
+    <button id="btn">stop</button>
+  </body>
+  <script>
+    // settimeout:- it  is a built in function of javascript which allows you to delay the execution of code for specified amount of time
+    function random(number) {
+      return Math.floor(Math.random() * (number + 1));
+    }
+
+    const changer = function () {
+      const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+      document.body.style.backgroundColor = rndCol;
+    };
+     const timer = setTimeout(changer,2000) // it  will change color after 1 second
+
+    // if we want to stop this execution  of changing colors then what should do?
+    // we will use clearTimeout
+    //clearTimeout : it  is used to cancel a timeout previously set with setTimeout(). 
+
+     const stopChange = function(){
+        clearTimeout(timer);
+
+     }
+    const btn = document.querySelector("#btn")
+    btn.addEventListener("click",stopChange)
+  </script>
+</html>

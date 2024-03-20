@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button style="width: 100px; height: 30px; margin: 2px; padding: 14px auto">
+      Change color
+    </button>
+  </body>
+  <script>
+    //******************* events *********************
+    const btn = document.querySelector("button");
+    function random(number) {
+      return Math.floor(Math.random() * (number + 1));
+    }
+    // we use addEventLitner
+    // syntex:
+    /*
+element.addEventListener ('event', function(){}, options);
+options: optional parameter that can take the following values:
+     true or false - if true , the event will be executed in the bubbling phase. 
+     if false, the event will be executed in the capturing phase. 
+     By default, it is set to false.
+*/
+    btn.addEventListener(
+      "click",
+      () => {
+        const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+        document.body.style.backgroundColor = rndCol;
+      },
+      false
+    );
+
+    // event list
+    /*
+ 1. click:-> A mouse button is clicked over an element.
+2. dblclick:-> A mouse button is double-clicked over an element.
+3. focus:-> The element gets focused (for example, when a text field is clicked and ready to receive input).
+4. blur:-> The element loses focus (for example, when a text field is clicked out of).
+5. mouseover:-> The mouse pointer is moved onto an element or onto one of its children.
+6. mouseout:-> The mouse pointer is moved out of an element or out of one of its children.
+7. mousemove:-> The mouse pointer is moved while it is over an element.
+8. keydown:-> A key is pressed down.
+9. keypress:-> A key is pressed down, and that key normally produces a character value (use of this event is deprecated).
+10. keyup:-> A key is released.
+
+    */
+
+
+    // Event objects
+    /*
+      Sometimes, inside an event handler function, you'll see a parameter specified with a name such as event, evt, or e.
+    
+1-> The target property of the event object is always a reference to the element the event occurred upon.
+   
+2-> Preventing default behavior: If you want to stop an event from doing anything by default, you call the preventDefault() method.
+
+3->Event bubbling(innermost to outermost ):- Event bubbling describes how the browser handles events targeted at nested elements. This behavior can be useful and can also cause unexpected problems.Fixing the problem with stopPropagation()
+
+
+*/
+  </script>
+</html>

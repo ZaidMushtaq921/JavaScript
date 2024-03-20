@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Handling Demo</title>
+<style>
+  #target {
+    width: 200px;
+    height: 100px;
+    background-color: lightblue;
+    text-align: center;
+    line-height: 100px;
+    cursor: pointer;
+  }
+
+  .result {
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div id="target">Click Me</div>
+<div id="clickResult" class="result"></div>
+<div id="dblclickResult" class="result"></div>
+<div id="focusResult" class="result"></div>
+<div id="blurResult" class="result"></div>
+<div id="mouseoverResult" class="result"></div>
+<div id="mouseoutResult" class="result"></div>
+<div id="mousemoveResult" class="result"></div>
+<div id="keydownResult" class="result"></div>
+<div id="keypressResult" class="result"></div>
+<div id="keyupResult" class="result"></div>
+
+<script>
+  const target = document.getElementById('target');
+
+  // 1. Click Event
+  target.addEventListener('click', () => {
+    showResult('clickResult', 'Click event occurred');
+  });
+
+  // 2. Double Click Event
+  target.addEventListener('dblclick', () => {
+    showResult('dblclickResult', 'Double click event occurred');
+  });
+
+  // 3. Focus Event
+  target.addEventListener('focus', () => {
+    showResult('focusResult', 'Focus event occurred');
+  });
+
+  // 4. Blur Event
+  target.addEventListener('blur', () => {
+    showResult('blurResult', 'Blur event occurred');
+  });
+
+  // 5. Mouse Over Event
+  target.addEventListener('mouseover', () => {
+    showResult('mouseoverResult', 'Mouse over event occurred');
+  });
+
+  // 6. Mouse Out Event
+  target.addEventListener('mouseout', () => {
+    showResult('mouseoutResult', 'Mouse out event occurred');
+  });
+
+  // 7. Mouse Move Event
+  target.addEventListener('mousemove', () => {
+    showResult('mousemoveResult', 'Mouse move event occurred');
+  });
+
+  // 8. Key Down Event
+  window.addEventListener('keydown', (event) => {
+    showResult('keydownResult', 'Key down event occurred - Key Code: ' + event.keyCode);
+  });
+
+  // 9. Key Press Event (Deprecated)
+  window.addEventListener('keypress', (event) => {
+    showResult('keypressResult', 'Key press event occurred - Character: ' + String.fromCharCode(event.charCode));
+  });
+
+  // 10. Key Up Event
+  window.addEventListener('keyup', (event) => {
+    showResult('keyupResult', 'Key up event occurred - Key Code: ' + event.keyCode);
+  });
+
+  function showResult(elementId, message) {
+    const resultDiv = document.getElementById(elementId);
+    resultDiv.textContent = message;
+  }
+</script>
+
+</body>
+</html>
